@@ -17,12 +17,28 @@ li,
   top: 39vh;
   padding: 10px;
   margin: 5%;
+  /* animation */
+  animation-name: popup_kf;
+  animation-duration: 0.3s;
+  animation-direction: alternate;
+}
+
+@keyframes popup_kf {
+  0% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 #kryds {
   position: relative;
   left: 96%;
   font-size: 1.5rem;
+  width: fit-content;
+  cursor: pointer;
 }
 
 #welcome {
@@ -40,18 +56,24 @@ li,
 #welcome h1 {
   font-family: "Raleway", sans-serif;
   color: aliceblue;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 
 #welcome p {
   padding: 10px;
   color: aliceblue;
+  max-width: 500px;
+  margin-top: 10px;
 }
 
 li {
   list-style: none;
-  margin: 10px;
   text-align: center;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 /*          TABLET          */
@@ -66,6 +88,21 @@ li {
     height: 100vh;
     margin: 0;
     position: fixed;
+    z-index: 100;
+    /* animation */
+    animation-name: welcome_kf;
+    animation-duration: 2s;
+    animation-direction: alternate;
+  }
+
+  @keyframes welcome_kf {
+    0% {
+      width: 100vw;
+    }
+
+    100% {
+      width: 50vw;
+    }
   }
 
   #all_actors {
