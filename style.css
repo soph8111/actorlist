@@ -1,5 +1,81 @@
+* {
+  margin: 0;
+}
+
+p,
+li,
+#kryds {
+  font-family: "Open Sans", sans-serif;
+}
+
 #popup {
   background-color: cornsilk;
-  width: 80vw;
+  width: 84vw;
+  height: 200px;
   display: none;
+  position: fixed;
+  top: 39vh;
+  padding: 10px;
+  margin: 5%;
+}
+
+#kryds {
+  position: relative;
+  left: 96%;
+  font-size: 1.5rem;
+}
+
+#welcome {
+  background-color: rgb(182, 223, 226);
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+
+#welcome h1 {
+  font-family: "Raleway", sans-serif;
+  color: aliceblue;
+  font-size: 1.8rem;
+}
+
+#welcome p {
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+  margin: 10px;
+  text-align: center;
+}
+
+/*          TABLET          */
+@media screen and (min-width: 1023px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  #welcome {
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    position: fixed;
+  }
+
+  #all_actors {
+    width: 50vw;
+    right: 0;
+    position: absolute;
+  }
+
+  #popup {
+    width: 45vw;
+    height: 300px;
+    top: 30vh;
+    margin: 2%;
 }
