@@ -3,6 +3,7 @@ const containerWithActors = document.querySelector("#all_actors");
 const actorTemplate = document.querySelector("#name");
 const containerWithInfo = document.querySelector("#popup");
 const movieTemplate = document.querySelector("#info");
+let filterButtons = "all";
 
 // Henter actors ind ved hjælp af fetch (i en promise chain)
 async function getData(actorsFile) {
@@ -12,19 +13,22 @@ async function getData(actorsFile) {
   console.log(actors); // tjekker i konsollen om array er hentet
 
   showActors(actors); // kalder funktionen showActors og sender array'et med
+  //addEventListenerToButtons(actors);
 }
 
 function showActors(actors) {
   //looper igennem array'et
   actors.forEach((actor) => {
-    let klon = actorTemplate.cloneNode(true).content; // Gør det muligt at klone ned i template
-    klon.querySelector(".name").textContent = actor.fullname; // navn hentes
-    klon.querySelector(".name").addEventListener("click", () => {
-      containerWithInfo.style.display = "block";
-      console.log(actor); // viser den aktuelle skuespiller i konsollen
-      showInfo(actor); //sender den aktuelle skuespiller med ned i funktionen "showInfo"
-    });
-    containerWithActors.appendChild(klon); //kloner ind i sektionen
+    if (filterButtons == "all" || actor.movie.includes(filterButtons)) {
+      let klon = actorTemplate.cloneNode(true).content; // Gør det muligt at klone ned i template
+      klon.querySelector(".name").textContent = actor.fullname; // navn hentes
+      klon.querySelector(".name").addEventListener("click", () => {
+        containerWithInfo.style.display = "block";
+        console.log(actor); // viser den aktuelle skuespiller i konsollen
+        showInfo(actor); //sender den aktuelle skuespiller med ned i funktionen "showInfo"
+      });
+      containerWithActors.appendChild(klon); //kloner ind i sektionen
+    }
   });
 }
 
@@ -41,5 +45,15 @@ function showInfo(actor) {
     containerWithInfo.style.display = "none";
   });
 }
+
+// function addEventListenerToButtons(actors) {
+//   document.querySelectorAll("#filter_buttons button").forEach((elm) => {
+//     elm.addEventListener("click", () => {
+//       filterButtons = elm.dataset;
+//     });
+//     showActors(actors);
+//     console.log(elm.dataset);
+//   });
+// }
 
 getData(actorsFile);

@@ -45,6 +45,7 @@ li,
 
 #welcome p {
   padding: 10px;
+  color: aliceblue;
 }
 
 li {
@@ -78,4 +79,5 @@ li {
     height: 300px;
     top: 30vh;
     margin: 2%;
+  }
 }
